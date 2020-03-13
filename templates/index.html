@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+    div {}
+     body{
+    background-size: 100% ;
+    background-repeat: no-repeat;
+    background-image: url('https://mms.businesswire.com/media/20190515005494/en/721856/5/Tampere_ilmakuva_vasemmalla_Viinikanlahti.jpg');
+  </style>
+</head>
+
+<body>
+ <div class="login">
+    <h1 style = 'color:Black;'>Prediction of delay</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="line" placeholder="line" required="required" />
+        <input type="text" name="operator" placeholder="operator" required="required" />
+        <input type="text" name="Vehicle no." placeholder="Vehicle no." required="required" />
+        <input type="text" name="Date" placeholder="dd-mm-yyyy" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
